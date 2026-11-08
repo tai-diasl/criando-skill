@@ -1,12 +1,13 @@
 # Cenários de teste: verificação de aprovação do aluno
 
-- **Data da análise:** 2026-09-19
+- **Data da análise:** 2026-11-08
 - **Requisito analisado:**
+  - Frequência inferior a 75%: Reprovado, independentemente da média.
   - Média maior ou igual a 7 e frequência maior ou igual a 75%: Aprovado.
-  - Média maior ou igual a 4 e frequência maior ou igual a 75%: Recuperação.
-  - Média inferior a 4 ou frequência inferior a 75%: Reprovado.
+  - Média maior ou igual a 4 e inferior a 7, com frequência maior ou igual a 75%: Recuperação.
+  - Média inferior a 4, com frequência maior ou igual a 75%: Reprovado.
 - **Técnicas escolhidas:** análise do valor limite e partição de equivalência.
-- **Suposições:** os limites 4, 7 e 75% são inclusivos; valores imediatamente abaixo ou acima são representados por casas decimais. Os limites físicos das entradas não foram informados.
+- **Suposições:** os limites 4, 7 e 75% são inclusivos; valores imediatamente abaixo ou acima são representados por casas decimais, com duas casas nos exemplos. Os limites físicos das entradas não foram informados.
 
 ## Análise do valor limite
 
@@ -105,7 +106,7 @@
 ### Partições identificadas
 
 - Média menor que 4: reprovação.
-- Média entre 4 e 6,99: recuperação, desde que a frequência seja suficiente.
+- Média maior ou igual a 4 e menor que 7: recuperação, desde que a frequência seja suficiente.
 - Média maior ou igual a 7: aprovação, desde que a frequência seja suficiente.
 - Frequência menor que 75%: reprovação, independentemente da média.
 - Frequência maior ou igual a 75%: permite o resultado definido pela média.
